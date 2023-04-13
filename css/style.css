@@ -1,0 +1,135 @@
+/************
+** Accueil **
+*************/
+
+body {
+    background-image: url("../image/background.jpg");
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.774);
+}
+
+header h1 {
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-image: -webkit-linear-gradient(90deg, #FF9200 15%, #00BCD4 50%, #820282 70%);
+font-size: 5rem;
+font-style: italic;
+text-align: center;
+}
+
+header p {
+    font-size: 3rem;
+    text-align: center;
+    color: #b11f1f;
+}
+
+header p em {
+    font-style: italic;
+}
+
+.gameContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.game {
+    width: 60rem;
+    height: 40rem;
+    border: solid rgb(0, 0, 0);
+    border-width: 0.1rem;
+    border-radius: 1rem;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tigger{
+    width: 20rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.play{
+    width: 20rem;
+    color: #ffffff;
+    background-color: #820282;
+    border-radius: 1rem;
+    font-size: 3rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.message {
+    padding: 1rem;
+    border-radius: 3px;
+    background-color: rgb(250, 228, 185);
+    color:rgb(109, 76, 18);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+/* ************************************************ */
+
+
+/**********
+** Rules **
+***********/
+
+
+.divRules {
+    width: 60rem;
+    height: 40rem;
+    border: solid rgb(0, 0, 0);
+    border-width: 0.1rem;
+    border-radius: 1rem;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.nextButton{
+    width: 10rem;
+    color: #ffffff;
+    background-color: #820282;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.rulesTigger{
+    width: 20rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+
+
+/* ************************************************ */
+
+
+/**********
+** Game **
+***********/
+
+
+.divGame{
+    width: 60rem;
+    height: 40rem;
+    border: solid rgb(0, 0, 0);
+    border-width: 0.1rem;
+    border-radius: 1rem;
+    background-color: #fafafa;
+    display: flex;
+}
+
+
+
+
