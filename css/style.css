@@ -87,6 +87,7 @@ header p em {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-around;
 }
 
 .divButton {
@@ -107,7 +108,7 @@ header p em {
 }
 
 .rulesTigger{
-    width: 20rem;
+    width: 18rem;
     margin-bottom: 1rem;
     cursor: pointer;
 }
@@ -121,8 +122,69 @@ header p em {
 ** Game **
 ***********/
 
+.h2PrimaryColor {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 1rem;
+}
+
+.divReminder {
+    display: flex;
+    flex-direction: row;
+}
+
+.divPrimaryColor {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 5rem;
+    margin-left: 2rem;
+    justify-content: space-between;
+}
+
+.divPrimaryColorText {
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 15rem;
+    margin-left: 2rem;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+.divBlue {
+    height: 2.6rem;
+    width: 2.6rem;
+    background-color: #0400ff;
+    border-radius: 50%; 
+}
+
+.divRed {
+    height: 2.6rem;
+    width: 2.6rem;
+    background-color: #ff0000;
+    border-radius: 50%; 
+}
+
+.divYellow {
+    height: 2.6rem;
+    width: 2.6rem;
+    background-color: #ffee00;
+    border-radius: 50%;
+}
 
 
+.beginButton {
+    height: 2.5rem;
+    width: 12rem;
+    color: #ffffff;
+    background-color: #820282;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
 
 
 
