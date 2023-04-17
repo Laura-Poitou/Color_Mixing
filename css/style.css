@@ -31,6 +31,8 @@ header p em {
 
 
 .game {
+    width: 60rem;
+    height: 40rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,7 +82,6 @@ header p em {
     margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .divRules {
@@ -107,7 +108,7 @@ header p em {
     cursor: pointer;
 }
 
-.rulesTigger{
+.rulesTigger {
     width: 18rem;
     margin-bottom: 1rem;
     cursor: pointer;
@@ -118,9 +119,9 @@ header p em {
 /* ************************************************ */
 
 
-/**********
-** Game **
-***********/
+/*******************
+** Primary colors **
+********************/
 
 .h2PrimaryColor {
     font-size: 2rem;
@@ -158,6 +159,7 @@ header p em {
     width: 2.6rem;
     background-color: #0400ff;
     border-radius: 50%; 
+    border: 0.1rem solid #000;
 }
 
 .divRed {
@@ -165,6 +167,7 @@ header p em {
     width: 2.6rem;
     background-color: #ff0000;
     border-radius: 50%; 
+    border: 0.1rem solid #000;
 }
 
 .divYellow {
@@ -172,6 +175,7 @@ header p em {
     width: 2.6rem;
     background-color: #ffee00;
     border-radius: 50%;
+    border: 0.1rem solid #000;
 }
 
 
@@ -187,5 +191,65 @@ header p em {
 }
 
 
+/* ************************************************ */
+
+
+/**********
+** Game **
+***********/
+
+.divColors{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colorCircle {
+    display: flex;
+    flex-direction: row;
+    width: 30rem;
+    margin-left: 2rem;
+    justify-content: space-between;
+    font-size: 2rem;
+}
+
+
+.divColorMixte {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30rem;
+    margin-top: 3rem;
+}
+
+.mixedColors {
+    display: flex;
+    flex-direction: column;
+}
+
+.firstColor, 
+.secondColor {
+    height: 5rem;
+    width: 10rem;
+    border: 0.1rem solid #000;
+}
+
+.tiggerImg {
+    width: 13rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.shuffleButton {
+    height: 2.5rem;
+    width: 12rem;
+    color: #ffffff;
+    background-color: #820282;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
 
 
