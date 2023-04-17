@@ -28,14 +28,19 @@ const play = {
 
 
         // On ajoute le message de Tigger expliquant les régles 
-        tigger.create('Clique sur deux couleurs pour voir le résultat. ', divRulesElement);
+        tigger.create('Clique sur les deux couleurs que tu souhaites mélanger et regarde le résultat. Si tu as besoin d\'aide, clique sur Tigger.', divRulesElement);
 
+
+        // On créé une div de classe button qui contiendra le bouton
+        const divButtonElement = document.createElement('div');
+        divButtonElement.classList.add('divButton');
+        divElement.append(divButtonElement);
 
         // Ajouter un boutton suivant, le sélectionner et poser un écouteurs dessus 
         const nextButton = document.createElement('button');
         nextButton.textContent = "Suivant";
         nextButton.classList.add('nextButton');
-        divRulesElement.append(nextButton);
+        divButtonElement.append(nextButton);
         nextButton.addEventListener('click', play.handleNextClick);
     },
 

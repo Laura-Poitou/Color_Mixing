@@ -13,7 +13,7 @@ const tigger = {
     // Méthode appelée lorsqu'on clique sur Tigger
     handleTiggerClick: function() {
 
-        console.log('Hello depuis handleTiggerClick'); 
+        //console.log('Hello depuis handleTiggerClick'); 
 
         // Je sélectionne le parent dans lequel sera affiché le message 
         const parentElement = document.querySelector('.game');
