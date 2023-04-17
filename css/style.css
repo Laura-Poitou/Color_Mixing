@@ -29,18 +29,8 @@ header p em {
     font-style: italic;
 }
 
-.gameContainer {
-    display: flex;
-    justify-content: center;
-}
 
 .game {
-    width: 60rem;
-    height: 40rem;
-    border: solid rgb(0, 0, 0);
-    border-width: 0.1rem;
-    border-radius: 1rem;
-    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,22 +70,34 @@ header p em {
 ***********/
 
 
-.divRules {
+.gameContainer {
     width: 60rem;
     height: 40rem;
     border: solid rgb(0, 0, 0);
     border-width: 0.1rem;
     border-radius: 1rem;
     background-color: #fafafa;
+    margin: auto;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
+    flex-direction: column;
     justify-content: center;
 }
 
+.divRules {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.divButton {
+    display: flex;
+    justify-content: center;
+}
+
+
 .nextButton{
-    width: 10rem;
+    height: 2.5rem;
+    width: 9rem;
     color: #ffffff;
     background-color: #820282;
     border-radius: 1rem;
@@ -120,15 +122,7 @@ header p em {
 ***********/
 
 
-.divGame{
-    width: 60rem;
-    height: 40rem;
-    border: solid rgb(0, 0, 0);
-    border-width: 0.1rem;
-    border-radius: 1rem;
-    background-color: #fafafa;
-    display: flex;
-}
+
 
 
 
