@@ -113,8 +113,14 @@ const play = {
             const nextButton = document.querySelector('.nextButton');
             nextButton.remove();
 
-        
-
+        // Creation d'un bouton commencer
+            const beginButton = document.createElement('button');
+            beginButton.textContent = "Commencer";
+            beginButton.classList.add('beginButton');
+            
+            const divButtonElement = document.querySelector('.divButton');
+            divButtonElement.prepend(beginButton);
+            beginButton.addEventListener('click', play.handleBeginClick);   
 
         // Ajouter un message quand on clique sur Tigger
             // On sélectionne Tigger
@@ -139,6 +145,9 @@ const play = {
 
     // Méthode appelée lorsqu'on clique sur Commencer
     handleBeginClick: function() {
+        // On enlève la balise image et le button play présent dans la div
+        const divElement = document.querySelector('.gameContainer');
+        divElement.innerHTML = '';
 
         
 
