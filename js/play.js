@@ -169,16 +169,19 @@ const play = {
                 // Blue
                 const divBlueElement = document.createElement('div');
                 divBlueElement.classList.add('divBlue');
+                divBlueElement.dataset.color = "blue";
                 divColorCircle.prepend(divBlueElement);
 
                 // Red
                 const divRedElement = document.createElement('div');
                 divRedElement.classList.add('divRed');
+                divRedElement.dataset.color = "red";
                 divColorCircle.prepend(divRedElement);
 
                 // Yellow
                 const divYellowElement = document.createElement('div');
                 divYellowElement.classList.add('divYellow');
+                divYellowElement.dataset.color = "yellow";
                 divColorCircle.prepend(divYellowElement);
                 
 
@@ -194,12 +197,12 @@ const play = {
 
                 // Conteneur couleur 1
                 const divFirstColorElement = document.createElement('div');
-                divFirstColorElement.classList.add('firstColor');
+                divFirstColorElement.classList.add('divFirstColor');
                 divMixedColors.prepend(divFirstColorElement);
 
                 // Conteneur couleur 2
                 const divSecondColorElement = document.createElement('div');
-                divSecondColorElement.classList.add('secondColor');
+                divSecondColorElement.classList.add('divSecondColor');
                 divMixedColors.prepend(divSecondColorElement);
 
             // Tigger
@@ -230,12 +233,17 @@ const play = {
 
         // Ecouteurs d'événements 
             // Clic sur bleu
+                const blueColor = document.querySelector('.divBlue');
+                blueColor.addEventListener('click', play.handleBlueClick)
+
             // Clic sur rouge
+                const RedColor = document.querySelector('.divRed');
+                RedColor.addEventListener('click', play.handleRedClick)
+
             // Clic sur jaune
-
-        // Handlers
-
-        
+                const yellowColor = document.querySelector('.divYellow');
+                yellowColor.addEventListener('click', play.handleYellowClick)
+       
 
     },
 
@@ -249,6 +257,91 @@ const play = {
         tigger.create("Clique sur deux couleurs pour les sélectionner puis sur le bouton Mélanger pour voir le résultat", parentElement);
 
     },
+
+    // Méthode appelée lorsque l'on clique sur la pastille bleue
+    handleBlueClick:function(event) {
+        
+        // On récupère l'élément sélectionné
+        const clickedColor = event.target;
+
+        //Appelle à la méthode permettant de remplir les div avec les couleurs sélectionnées
+        play.divSelectedColors(clickedColor);
+    },
+
+    // Méthode appelée lorsque l'on clique sur la pastille rouge
+    handleRedClick:function(event) {
+        const clickedColor = event.target;
+        play.divSelectedColors(clickedColor);
+    },
+
+    // Méthode appelée lorsque l'on clique sur la pastille jaune
+    handleYellowClick:function(event) {
+        const clickedColor = event.target;
+        play.divSelectedColors(clickedColor);
+    },
+
+    // Définition de deux varaiables correspondantes aux couleurs sélectionnées par l'utilisateur
+    firstColor: "",
+    secondColor: "",
+    selectedColorsTable: {},
+
+
+    // Méthode pour déterminer first et secondColor
+    selectedColors: function(clickedColor) {
+
+        
+        if (play.firstColor === "") {
+            play.firstColor = clickedColor.dataset.color;
+            play.selectedColorsTable.firstColor = play.firstColor;
+            console.log(play.selectedColorsTable);
+        } else if (play.secondColor === "" & play.firstColor != clickedColor.dataset.color) {
+            play.secondColor = clickedColor.dataset.color;
+            play.selectedColorsTable.secondColor = play.secondColor;
+            console.log(play.selectedColorsTable);
+        } else if (play.firstColor == clickedColor.dataset.color) {
+            tigger.create("Tu as choisis deux fois la même couleur, choisis-en une autre", document.querySelector('.game'))
+        } else {
+            tigger.create("Tu as déjà choisis deux couleurs, appuie sur Mélanger pour voir le résultat", document.querySelector('.game'))
+        }
+        console.log(play.selectedColorsTable);
+        return play.selectedColorsTable;
+
+    },
+
+    //Méthode qui permet de remplir divFirst et divSecondColor avec les couleurs sélectionnées et de grossier la bordure des pastilles sélectionnées
+    divSelectedColors: function(clickedColor) {
+        let selectedColors = play.selectedColors(clickedColor);
+        console.log(selectedColors);
+        let firstColor = selectedColors.firstColor;
+        let secondColor = selectedColors.secondColor;
+
+        if(firstColor == "red") {
+            document.querySelector('.divFirstColor').classList.add('red');
+            document.querySelector('.divRed').classList.add('selectedColor');
+        } else if (firstColor == "blue") {
+            document.querySelector('.divFirstColor').classList.add('blue');
+            document.querySelector('.divBlue').classList.add('selectedColor');
+        } else if(firstColor == "yellow") {
+            document.querySelector('.divFirstColor').classList.add('yellow');
+            document.querySelector('.divYellow').classList.add('selectedColor');
+        } else {
+            return false;
+        }
+
+        if(secondColor == "red") {
+            document.querySelector('.divSecondColor').classList.add('red');
+            document.querySelector('.divRed').classList.add('selectedColor');
+        } else if (secondColor == "blue") {
+            document.querySelector('.divSecondColor').classList.add('blue');
+            document.querySelector('.divBlue').classList.add('selectedColor');
+        } else if (secondColor == "yellow") {
+            document.querySelector('.divSecondColor').classList.add('yellow');
+            document.querySelector('.divYellow').classList.add('selectedColor');
+        } else {
+            return false;
+        }
+    },
+
 
     // Méthode appelée lorsqu'on clique sur Mélanger
     handleShuffleClick: function() {
