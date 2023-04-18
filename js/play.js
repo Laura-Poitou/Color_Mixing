@@ -343,20 +343,34 @@ const play = {
 
     // Méthode appelée lorsqu'on clique sur Mélanger
     handleShuffleClick: function() {
-        // Supprimer la balise p de classe message
-        // const pElement = document.querySelector('.message');
-        // pElement.remove();
+        // Afficher un message de Tigger
+        tigger.create("Clique sur le bouton Rejouer pour faire un nouveau mélange", document.querySelector('.game'))
+     
+        // Supression de l'evenement sur Tigger et sur les pastilles de couleurs 
+        document.querySelector('.tiggerImg').removeEventListener('click', play.handleTigger2Click);
 
-        // // Supprimer la balise divFirstColor et divSecondColor
-        // const divFirstColorElement = document.querySelector('.divFirstColor');
-        // divFirstColorElement.remove();
+        document.querySelector('.divBlue').removeEventListener('click', play.handleBlueClick);
 
-        // const divSecondColorElement = document.querySelector('.divSecondColor');
-        // divSecondColorElement.remove();
+        document.querySelector('.divRed').removeEventListener('click', play.handleRedClick);
+
+        document.querySelector('.divYellow').removeEventListener('click', play.handleYellowClick);
+
+        // Changer le texte du bouton
+        document.querySelector('.shuffleButton').textContent = "Rejouer";
 
         // Appel à la méthode obtainedColor
-        play.obtainedColor();  
-        console.log('Hello depuis listener');
+        play.obtainedColor(); 
+
+        // Réinitialisation des valeurs par défaut
+        play.firstColor = "",
+        play.secondColor = "",
+        play.selectedColorsTable = {};
+
+        // Modification de l'événement 
+        document.querySelector('.shuffleButton').removeEventListener('click', play.handleYellowClick);
+        document.querySelector('.shuffleButton').addEventListener('click', play.handleBeginClick)
+
+        
 
     },
 
