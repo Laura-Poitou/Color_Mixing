@@ -2,24 +2,24 @@ const play = {
     // Méthode appelée au démarrage
     init: function() {
 
-        // On sélectionne le bouton jouer
+        // Sélectionner le bouton jouer
         const playButtonElement = document.querySelector('.play');
         
-        // On pose un écouteur d'évenement clic
+        // Poser un écouteur d'évenement clic
         playButtonElement.addEventListener('click', play.handlePlayClick);
     },
 
     handlePlayClick: function() {
-        // On enlève la balise image et le button play présent dans la div
+        // Enlever la balise image et le button play présent dans la div
         const divElement = document.querySelector('.game');
         divElement.innerHTML = '';
 
-        // On créé une div de classe rules qui contiendra les règles
+        // Créer une div de classe rules qui contiendra les règles
         const divRulesElement = document.createElement('div');
         divRulesElement.classList.add('divRules');
         divElement.prepend(divRulesElement);
 
-        // On ajoute une image 
+        // Ajouter une image 
         const imgElement = document.createElement('img');
         imgElement.src="../image/cat.png";
         imgElement.classList.add('rulesTigger');
@@ -27,16 +27,16 @@ const play = {
         divRulesElement.prepend(imgElement);
 
 
-        // On ajoute le message de Tigger expliquant les régles 
+        // Ajouter le message de Tigger expliquant les régles 
         tigger.create('Clique sur les deux couleurs que tu souhaites mélanger et regarde le résultat. Si tu as besoin d\'aide, clique sur Tigger.', divRulesElement);
 
 
-        // On créé une div de classe button qui contiendra le bouton
+        // Créer une div de classe divButton qui contiendra le bouton
         const divButtonElement = document.createElement('div');
         divButtonElement.classList.add('divButton');
         divElement.append(divButtonElement);
 
-        // Ajouter un boutton suivant, le sélectionner et poser un écouteurs dessus 
+        // Ajouter un boutton suivant, le sélectionner et poser un écouteur dessus 
         const nextButton = document.createElement('button');
         nextButton.textContent = "Suivant";
         nextButton.classList.add('nextButton');
@@ -44,9 +44,10 @@ const play = {
         nextButton.addEventListener('click', play.handleNextClick);
     },
 
+    //Méthode appelée lorsque l'on clique sur le bouton Suivant
     handleNextClick:function() {
 
-        // Add H2
+        // Ajouter un H2
             const divH2Element = document.createElement('h2');
             divH2Element.textContent = "Les couleurs primaires :";
             divH2Element.classList.add('h2PrimaryColor');
@@ -65,7 +66,7 @@ const play = {
             divReminderElement.classList.add('divReminder');
             divRulesElement.prepend(divReminderElement);
 
-            // Create div with primary colors
+            // Créer une div qui contient les couleurs primaires
                 const divPrimaryColorElement = document.createElement('div');
                 divPrimaryColorElement.classList.add('divPrimaryColor');
                 divReminderElement.prepend(divPrimaryColorElement);
@@ -85,7 +86,7 @@ const play = {
                     divYellowElement.classList.add('divYellow');
                     divPrimaryColorElement.prepend(divYellowElement);
 
-             // Create div with primary colors text
+             // Créer une div avec le nom des couleurs primaires
                 const divPrimaryColorTextElement = document.createElement('div');
                 divPrimaryColorTextElement.classList.add('divPrimaryColorText');
                 divReminderElement.append(divPrimaryColorTextElement);
@@ -123,18 +124,18 @@ const play = {
             beginButton.addEventListener('click', play.handleBeginClick);   
 
         // Ajouter un message quand on clique sur Tigger
-            // On sélectionne Tigger
+            // Sélectionner Tigger
             const tiggerElement = document.querySelector('.rulesTigger');
         
-            // On pose un écouteur d'évenement clic
+            // Poser un écouteur d'évenement clic
             tiggerElement.addEventListener('click', play.handleTiggerClick);
 
     },
 
-    // Méthode appelée lorsqu'on clique sur Tigger
+    // Méthode appelée lorsque l'on clique sur Tigger
     handleTiggerClick: function() {
 
-        // Je sélectionne le parent dans lequel sera affiché le message 
+        // Sélection du parent dans lequel sera affiché le message 
         const parentElement = document.querySelector('.game');
 
         // Afficher un message
@@ -143,10 +144,10 @@ const play = {
     },
 
 
-    // Méthode appelée lorsqu'on clique sur Commencer
+    // Méthode appelée lorsque l'on clique sur Commencer
     handleBeginClick: function() {
 
-        // On enlève vide la balise div de classe gameContainer
+        // La balise div de classe gameContainer est vidée
         const divElement = document.querySelector('.game');
         divElement.innerHTML = '';
 
@@ -155,7 +156,7 @@ const play = {
         divColorElement.classList.add('divColors');
         divElement.prepend(divColorElement);
 
-        // Add H2
+        // Ajout d'un h2
         const divH2Element = document.createElement('h2');
         divH2Element.textContent = "Choisis deux couleurs à mélanger :";
         divH2Element.classList.add('h2PrimaryColor');
@@ -185,7 +186,7 @@ const play = {
                 divColorCircle.prepend(divYellowElement);
                 
 
-        // Creation d'une div contenant les couleurs a melanger et Tigger
+        // Creation d'une div contenant les couleurs à mélanger et Tigger
         const divColorMixteElement = document.createElement('div');
         divColorMixteElement.classList.add('divColorMixte');
         divElement.append(divColorMixteElement);
@@ -213,10 +214,7 @@ const play = {
             divColorMixteElement.append(imgElement);
         
         // Ajouter un message quand on clique sur Tigger
-            // On sélectionne Tigger
             const tiggerElement = document.querySelector('.tiggerImg');
-        
-            // On pose un écouteur d'évenement clic
             tiggerElement.addEventListener('click', play.handleTigger2Click);
 
         // Création d'une div contenant le bouton Mélanger 
@@ -249,13 +247,9 @@ const play = {
 
     },
 
-    // Méthode 2 appelée lorsqu'on clique sur Tigger
+    // Méthode 2 appelée lorsque l'on clique sur Tigger
     handleTigger2Click: function() {
-
-        // Je sélectionne le parent dans lequel sera affiché le message 
         const parentElement = document.querySelector('.game');
-
-        // Afficher un message
         tigger.create("Clique sur deux couleurs pour les sélectionner puis sur le bouton Mélanger pour voir le résultat", parentElement);
 
     },
@@ -266,7 +260,7 @@ const play = {
         // On récupère l'élément sélectionné
         const clickedColor = event.target;
 
-        //Appelle à la méthode permettant de remplir les div avec les couleurs sélectionnées
+        //Appel à la méthode permettant de remplir les balises div avec les couleurs sélectionnées
         play.divSelectedColors(clickedColor);
     },
 
@@ -282,7 +276,7 @@ const play = {
         play.divSelectedColors(clickedColor);
     },
 
-    // Définition de deux varaiables correspondantes aux couleurs sélectionnées par l'utilisateur
+    // Définition de deux varaiables correspondantes aux couleurs sélectionnées par l'utilisateur et de l'objet qui les contiendra
     firstColor: "",
     secondColor: "",
     selectedColorsTable: {},
@@ -307,7 +301,7 @@ const play = {
 
     },
 
-    //Méthode qui permet de remplir divFirst et divSecondColor avec les couleurs sélectionnées et de grossier la bordure des pastilles sélectionnées
+    //Méthode qui permet de remplir divFirst et divSecondColor avec les couleurs sélectionnées et de grossir la bordure des pastilles sélectionnées
     divSelectedColors: function(clickedColor) {
         const selectedColors = play.selectedColors(clickedColor);
         const firstColor = selectedColors.firstColor;
@@ -341,12 +335,12 @@ const play = {
     },
 
 
-    // Méthode appelée lorsqu'on clique sur Mélanger
+    // Méthode appelée lorsque l'on clique sur Mélanger
     handleShuffleClick: function() {
         // Afficher un message de Tigger
         tigger.create("Clique sur le bouton Rejouer pour faire un nouveau mélange", document.querySelector('.game'))
      
-        // Supression de l'evenement sur Tigger et sur les pastilles de couleurs 
+        // Supression de l'événement sur Tigger et sur les pastilles de couleurs 
         document.querySelector('.tiggerImg').removeEventListener('click', play.handleTigger2Click);
 
         document.querySelector('.divBlue').removeEventListener('click', play.handleBlueClick);
