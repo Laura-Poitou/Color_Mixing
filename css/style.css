@@ -8,6 +8,10 @@ body {
 
 header {
     background-color: rgba(255, 255, 255, 0.774);
+    width: 60rem;
+    height: 16rem;
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
 header h1 {
