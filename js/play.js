@@ -370,8 +370,6 @@ const play = {
         document.querySelector('.shuffleButton').removeEventListener('click', play.handleYellowClick);
         document.querySelector('.shuffleButton').addEventListener('click', play.handleBeginClick)
 
-        
-
     },
 
     // Méthode pour que la couleur obtenue par le mélange s'affiche dans la div de classe mixedColor
