@@ -270,3 +270,31 @@ header p em {
 .selectedColor {
     border: 0.3rem solid #000;
 }
+
+/* ************************************************ */
+
+
+/**********
+** Result **
+***********/
+
+.purple {
+    background-color: #4f0381;
+    height: 10rem;
+    width: 10rem;
+    border: 0.1rem solid #000;
+}
+
+.green {
+    background-color: #01970e;
+    height: 10rem;
+    width: 10rem;
+    border: 0.1rem solid #000;
+}
+
+.orange {
+    background-color: #f86402;
+    height: 10rem;
+    width: 10rem;
+    border: 0.1rem solid #000;
+}

@@ -229,7 +229,6 @@ const play = {
             shuffleButton.textContent = "Mélanger";
             shuffleButton.classList.add('shuffleButton');
             divButtonElement.append(shuffleButton);
-            shuffleButton.addEventListener('click', play.handleShuffleClick);
 
         // Ecouteurs d'événements 
             // Clic sur bleu
@@ -243,7 +242,10 @@ const play = {
             // Clic sur jaune
                 const yellowColor = document.querySelector('.divYellow');
                 yellowColor.addEventListener('click', play.handleYellowClick)
-       
+
+            // Clic sur le bouton Mélanger 
+                const mixedButton = document.querySelector('.shuffleButton');
+                mixedButton.addEventListener('click', play.handleShuffleClick)
 
     },
 
@@ -288,32 +290,28 @@ const play = {
 
     // Méthode pour déterminer first et secondColor
     selectedColors: function(clickedColor) {
-
         
         if (play.firstColor === "") {
             play.firstColor = clickedColor.dataset.color;
             play.selectedColorsTable.firstColor = play.firstColor;
-            console.log(play.selectedColorsTable);
         } else if (play.secondColor === "" & play.firstColor != clickedColor.dataset.color) {
             play.secondColor = clickedColor.dataset.color;
             play.selectedColorsTable.secondColor = play.secondColor;
-            console.log(play.selectedColorsTable);
         } else if (play.firstColor == clickedColor.dataset.color) {
             tigger.create("Tu as choisis deux fois la même couleur, choisis-en une autre", document.querySelector('.game'))
         } else {
             tigger.create("Tu as déjà choisis deux couleurs, appuie sur Mélanger pour voir le résultat", document.querySelector('.game'))
         }
-        console.log(play.selectedColorsTable);
+
         return play.selectedColorsTable;
 
     },
 
     //Méthode qui permet de remplir divFirst et divSecondColor avec les couleurs sélectionnées et de grossier la bordure des pastilles sélectionnées
     divSelectedColors: function(clickedColor) {
-        let selectedColors = play.selectedColors(clickedColor);
-        console.log(selectedColors);
-        let firstColor = selectedColors.firstColor;
-        let secondColor = selectedColors.secondColor;
+        const selectedColors = play.selectedColors(clickedColor);
+        const firstColor = selectedColors.firstColor;
+        const secondColor = selectedColors.secondColor;
 
         if(firstColor == "red") {
             document.querySelector('.divFirstColor').classList.add('red');
@@ -345,9 +343,45 @@ const play = {
 
     // Méthode appelée lorsqu'on clique sur Mélanger
     handleShuffleClick: function() {
+        // Supprimer la balise p de classe message
+        // const pElement = document.querySelector('.message');
+        // pElement.remove();
 
-        
+        // // Supprimer la balise divFirstColor et divSecondColor
+        // const divFirstColorElement = document.querySelector('.divFirstColor');
+        // divFirstColorElement.remove();
+
+        // const divSecondColorElement = document.querySelector('.divSecondColor');
+        // divSecondColorElement.remove();
+
+        // Appel à la méthode obtainedColor
+        play.obtainedColor();  
+        console.log('Hello depuis listener');
 
     },
+
+    // Méthode pour que la couleur obtenue par le mélange s'affiche dans la div de classe mixedColor
+    obtainedColor: function() {
+        const divFirstColor = document.querySelector('.divFirstColor');
+        const divSecondColor = document.querySelector('.divSecondColor');
+        const divMixedColor = document.querySelector('.mixedColors');
+
+        if(divFirstColor.classList.contains('blue') & divSecondColor.classList.contains('red') | divFirstColor.classList.contains('red') & divSecondColor.classList.contains('blue')) {
+            divMixedColor.classList.add('purple');
+            divFirstColor.remove();
+            divSecondColor.remove();
+        } else if(divFirstColor.classList.contains('blue') & divSecondColor.classList.contains('yellow') | divFirstColor.classList.contains('yellow') & divSecondColor.classList.contains('blue')) {
+            divMixedColor.classList.add('green');
+            divFirstColor.remove();
+            divSecondColor.remove();
+        } else if (divFirstColor.classList.contains('yellow') & divSecondColor.classList.contains('red') | divFirstColor.classList.contains('red') & divSecondColor.classList.contains('yellow')) {
+            divMixedColor.classList.add('orange');
+            divFirstColor.remove();
+            divSecondColor.remove();
+        } else {
+            return false;
+        }
+
+    }
 
 }
